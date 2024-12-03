@@ -1,7 +1,7 @@
 运行 
 
 ```shell
-yarn start
+yarn android
 ```
 
 构建
