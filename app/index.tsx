@@ -31,7 +31,6 @@ export default function Index() {
   const theme = useThemeColor({ dark: "red", light: "blue" }, "background");
   return (
     <View>
-
       <Text
         style={{
           backgroundColor: theme,
@@ -39,7 +38,7 @@ export default function Index() {
       >
         主题测试
       </Text>
-      
+
       <View style={{ paddingTop: 50 }}>
         <Button
           title="弹框"
@@ -66,7 +65,6 @@ export default function Index() {
           }}
         ></Button>
       </View>
-
     </View>
   );
 }
