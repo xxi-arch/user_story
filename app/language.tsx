@@ -1,0 +1,24 @@
+import { Stack } from "expo-router";
+import React from "react";
+import { Alert, Button, Text, View } from "react-native";
+import { useI18n } from "./hooks/useI18n";
+export default function Language() {
+    const { t, locale, setLocale } = useI18n();
+        return (
+            <View>
+            
+            <Text>{t("hello")}</Text>
+            <Text>{t("welcome")}</Text>
+            <Button
+                title={t("buttons.login")}
+                onPress={() => {
+                /* ... */
+                }}
+            />
+            <Button
+                title={locale === "en" ? "切换到中文" : "Switch to English"}
+                onPress={() => setLocale(locale === "en" ? "zh" : "en")}
+            />
+            </View>
+        );
+}
