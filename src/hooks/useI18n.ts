@@ -4,7 +4,7 @@ import { translations, Language } from "../i18n/translations";
 
 export function useI18n() {
   const [locale, setLocale] = useState<Language>(
-    (Localization.locale.split("-")[0] as Language) || "en"
+    (Localization.getLocales()[0].languageCode as Language) || "en"
   );
 
   const t = useCallback(

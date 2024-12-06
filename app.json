@@ -36,7 +36,8 @@
       ]
     ],
     "experiments": {
-      "typedRoutes": true
+      "tsconfigPaths": true,
+      "typedRoutes": false
     },
     "extra": {
       "router": {
