@@ -1,13 +1,25 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import Feather from "@expo/vector-icons/Feather";
+import { useTheme } from "@src/models/them";
 
 export default function TabsLayout() {
+  const { colors } = useTheme();
+
   return (
     <Tabs
-    screenOptions={{
-      tabBarActiveTintColor: '#1eaa61', // 设置选中颜色
-    }}
+      screenOptions={{
+        tabBarActiveTintColor: colors.tint,
+        tabBarInactiveTintColor: colors.text + '80',
+        tabBarStyle: {
+          backgroundColor: colors.background,
+          borderTopColor: colors.border,
+        },
+        headerStyle: {
+          backgroundColor: colors.background,
+        },
+        headerTintColor: colors.text,
+      }}
     >
       <Tabs.Screen
         name="home"
