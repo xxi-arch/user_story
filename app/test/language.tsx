@@ -1,4 +1,4 @@
-import { useI18n } from "@src/hooks/useI18n";
+import { useI18n } from "@src/hooks/i18n";
 import React from "react";
 import { Alert, Button, Text, View } from "react-native";
 export default function Language() {

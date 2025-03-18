@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useTheme, initializeTheme, themeModeAtom, ThemeMode } from "@src/models/them";
-import { useSetAtom } from 'jotai';
+import { useTheme, ThemeMode } from "@src/hooks/theme";
+
 import { Stack, router } from "expo-router";
+import { useI18n } from "@src/hooks/i18n";
 
 export default function ThemeSettings() {
-  const { themeMode, setTheme, colors, systemColorScheme } = useTheme();
-  const setThemeModeAtom = useSetAtom(themeModeAtom);
+  const { themeMode, setTheme, colors } = useTheme();
+  const {t}=useI18n();
   // 用于临时存储选择的主题，只有点击保存后才真正应用
   const [selectedTheme, setSelectedTheme] = useState<ThemeMode>(themeMode);
 
   // 在组件加载时初始化主题
   useEffect(() => {
     const loadTheme = async () => {
-      const initialTheme = await initializeTheme();
-      setThemeModeAtom(initialTheme);
-      setSelectedTheme(initialTheme);
+      // const initialTheme = await initializeTheme();
+      // setThemeModeAtom(initialTheme);
+      // setSelectedTheme(initialTheme);
     };
     loadTheme();
   }, []);
 
   // 主题选项配置
   const themeOptions: { mode: ThemeMode; label: string; icon: string }[] = [
-    { mode: 'light', label: '浅色模式', icon: 'sunny' },
-    { mode: 'dark', label: '深色模式', icon: 'moon' },
-    { mode: 'system', label: '跟随系统', icon: 'phone-portrait-outline' },
+    { mode: 'system', label:  t("setting_page.theme_options.system"), icon: 'phone-portrait-outline' },
+    { mode: 'light', label: t("setting_page.theme_options.light"), icon: 'sunny' },
+    { mode: 'dark', label: t("setting_page.theme_options.dark"), icon: 'moon' },
   ];
 
   // 保存主题设置
@@ -43,7 +44,7 @@ export default function ThemeSettings() {
     <>
       <Stack.Screen 
         options={{
-          title: "主题设置",
+          title: t("setting_page.theme"),
           headerStyle: {
             backgroundColor: colors.background,
           },
@@ -54,7 +55,7 @@ export default function ThemeSettings() {
               onPress={handleCancel}
               style={{ marginLeft: 10 }}
             >
-              <Text style={{ color: colors.tint }}>取消</Text>
+              <Text style={{ color: colors.tint }}>{t("cancel")}</Text>
             </TouchableOpacity>
           ),
           // 添加右侧保存按钮
@@ -67,7 +68,7 @@ export default function ThemeSettings() {
                 color: selectedTheme !== themeMode ? colors.tint : colors.text + '50',
                 fontWeight: 'bold'
               }}>
-                保存
+                {t("save")}
               </Text>
             </TouchableOpacity>
           ),
@@ -101,11 +102,11 @@ export default function ThemeSettings() {
               <Text style={{ color: colors.text, fontSize: 16 }}>
                 {option.label}
               </Text>
-              {option.mode === 'system' && (
+              {/* {option.mode === 'system' && (
                 <Text style={{ color: colors.text + '80', fontSize: 12 }}>
-                  当前系统为{systemColorScheme === 'dark' ? '深色' : '浅色'}模式
+                  {systemColorScheme === 'dark' ? '深色' : '浅色'}
                 </Text>
-              )}
+              )} */}
             </View>
             {selectedTheme === option.mode && (
               <Ionicons name="checkmark" size={24} color={colors.tint} />

@@ -6,10 +6,14 @@
 const tintColorLight = '#09bf60';
 const tintColorDark = '#09bf60';
 
+// 灰色背景2 谈储层用 
+const backgroundDark2 = '#404040';
+
 export const Colors = {
   light: {
     text: '#11181C',
     background: '#fff',
+    background2: '#fff',
     tint: tintColorLight,
     icon: '#687076',
     tabIconDefault: '#687076',
@@ -18,6 +22,7 @@ export const Colors = {
   dark: {
     text: '#ECEDEE',
     background: '#151718',
+    background2: backgroundDark2,
     tint: tintColorDark,
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',

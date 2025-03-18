@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { useTheme } from "@src/models/them";
+import { useTheme } from "@src/hooks/theme";
 
 export default function SettingsLayout() {
   const { colors } = useTheme();

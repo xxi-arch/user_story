@@ -1,7 +1,7 @@
 import { Alert, Button, Text, useColorScheme, View } from "react-native";
 import { Link, router, Tabs } from "expo-router";
-import { useI18n } from "@src/hooks/useI18n";
-import { useThemeColor } from "@src/hooks/useThemeColor";
+import { useI18n } from "@src/hooks/i18n";
+import { useThemeColor } from "@src/hooks/theme/useThemeColor";
 
 
 export { useColorScheme } from "react-native";
