@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIViewControllerBasedStatusBarAppearance": true
+      },
+      "bundleIdentifier": "com.xisoft.user-story"
     },
     "android": {
       "package": "com.xisoft.user_story",
