@@ -20,6 +20,10 @@ export const zh = {
         about:"关于",
         logout:"退出登录",
     },
+    database_preview: {
+        title: "请在移动端使用数据库功能",
+        description: "网页版支持界面预览。查看和管理本地数据，请使用 Android 或 iOS 应用。",
+    },
     setting_page:{
         theme:"主题设置",
         theme_options:{

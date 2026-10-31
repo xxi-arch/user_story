@@ -22,6 +22,10 @@ export const en = {
     about:"About",
     logout:"Logout",
   },
+  database_preview: {
+    title: "Use the mobile app for database features",
+    description: "The web version supports interface previews. To view and manage local data, use the Android or iOS app.",
+  },
   setting_page:{
     theme:"Theme",
     theme_options:{

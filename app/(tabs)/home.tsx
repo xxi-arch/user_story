@@ -4,12 +4,7 @@ import { Stack } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "@src/hooks/theme";
 import { useI18n } from "@src/hooks/i18n";
-import TaskList from "@app/test/db";
-import { RealmProvider } from "@realm/react";
-import { Task } from "@src/models/task";
 import HomeView from "./home/HomeView";
-import { User } from "@src/models/User";
-import { Attr } from "@src/models/Attr";
 
 export default function HomeScreen() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -96,9 +91,7 @@ export default function HomeScreen() {
 
       <View style={{ flex: 1, backgroundColor: colors.background }}>
         {/* <Text className="text-red-500 text-2xl">Home11 Screen {themeMode}  {locale} </Text> */}
-        <RealmProvider schema={[User,Attr]} schemaVersion={3}>
-          <HomeView />
-        </RealmProvider>
+        <HomeView />
       </View>
       <DropdownMenu />
     </>
